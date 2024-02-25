@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package queue;
+
+import "google/protobuf/wrappers.proto";
+
+service QueueService{
+  rpc NewFileUploaded(NewFileUploadedDTO) returns (BoolValue) {}
+}
+
+message NewFileUploadedDTO{
+  string _id = 1;
+  string name = 2;
+  uint32 offset = 3;
+  uint32 size = 4;
+}
