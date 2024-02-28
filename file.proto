@@ -3,6 +3,7 @@ syntax = "proto3";
 package file;
 
 import "google/protobuf/wrappers.proto";
+import "account.proto";
 
 message FileHeader {
   string key = 1;
