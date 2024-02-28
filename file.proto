@@ -35,7 +35,7 @@ service FileService{
   rpc SetLoading(SetLoadingRequestDTO) returns (Int32Value) {}
   rpc GetBySlug(GetBySlugRequestDTO) returns (File) {}
   rpc GetFiles(GetFilesRequestDTO) returns (stream File) {}
-  rpc GetFileFromStorage(FilePart) returns (stream BytesValue) {}
+  rpc GetFileFromStorage(GetFileFromStorageRequestDTO) returns (stream BytesValue) {}
 }
 
 message CreateFileRequestDTO {
@@ -84,4 +84,9 @@ message GetFilesWhereRequestDTO {
 message GetFilesLimitRequestDTO{
   optional uint32 skip = 1;
   optional uint32 limit = 2;
+}
+
+message GetFileFromStorageRequestDTO {
+  FilePart part = 1;
+  Account account = 2;
 }
