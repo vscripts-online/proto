@@ -17,9 +17,9 @@ message Account {
   optional string code = 6;
   optional string refresh_token = 7;
   optional string access_token = 8;
-  optional number access_token_expiry_time = 9;
-  number storage_size = 10;
-  number available_size = 11;
+  optional uint32 access_token_expiry_time = 9;
+  uint32 storage_size = 10;
+  uint32 available_size = 11;
 
 }
 
