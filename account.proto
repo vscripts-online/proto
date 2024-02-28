@@ -26,7 +26,6 @@ message Account {
 service AccountService{
   rpc NewAccount(NewAccountRequestDTO) returns (Account) {}
   rpc LoginUrlGoogle(AccountUpdateGoogleRequestDTO) returns (StringValue) {}
-  rpc SyncSize(StringValue) returns (Account) {}
   rpc GetAccounts(PaginationRequestDTO) returns (stream Account) {}
   rpc DeleteAccount(StringValue) returns (Account) {}
 }
