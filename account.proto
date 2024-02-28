@@ -1,0 +1,48 @@
+syntax = "proto3";
+
+package account;
+
+import "google/protobuf/wrappers.proto";
+
+enum AccountTypes {
+  GOOGLE = 1;
+}
+
+message Account {
+  string _id = 1;
+  AccountTypes type = 2;
+  optional string label = 3;
+  optional string client_id = 4;
+  optional string client_secret = 5;
+  optional string code = 6;
+  optional string refresh_token = 7;
+  optional string access_token = 8;
+  optional number access_token_expiry_time = 9;
+  number storage_size = 10;
+  number available_size = 11;
+
+}
+
+service AccountService{
+  rpc NewAccount(NewAccountRequestDTO) returns (Account) {}
+  rpc LoginUrlGoogle(AccountUpdateGoogleRequestDTO) returns (StringValue) {}
+  rpc SyncSize(StringValue) returns (Account) {}
+  rpc GetAccounts(PaginationRequestDTO) returns (stream Account) {}
+  rpc DeleteAccount(StringValue) returns (Account) {}
+}
+
+message NewAccountRequestDTO {
+  AccountTypes type = 1;
+  optional string label = 2;
+}
+
+message AccountUpdateGoogleRequestDTO {
+  string _id = 1;
+  string client_id = 2;
+  string client_secret = 3;
+}
+
+message PaginationRequestDTO{
+  uint32 limit = 1;
+  uint32 skip = 2;
+}
