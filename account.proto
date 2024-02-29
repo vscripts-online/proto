@@ -30,6 +30,8 @@ service AccountService{
   rpc GetAccount(StringValue) returns (Account) {}
   rpc DeleteAccount(StringValue) returns (Account) {}
   rpc CallbackGoogle(CallbackGoogleRequestDTO) returns (Account) {}
+  rpc PickBySize(Uint32Value) returns (Account) {}
+  rpc IncreaseSize(Uint32Value) returns (Account) {}
 }
 
 message NewAccountRequestDTO {
@@ -53,4 +55,9 @@ message CallbackGoogleRequestDTO {
   string client_id = 2;
   string client_secret = 3;
   string code = 4;
+}
+
+message IncreaseSizeRequestDTO {
+  string _id = 1;
+  uint32 size = 2;
 }
