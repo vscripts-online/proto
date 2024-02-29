@@ -30,7 +30,7 @@ service AccountService{
   rpc GetAccount(StringValue) returns (Account) {}
   rpc DeleteAccount(StringValue) returns (Account) {}
   rpc CallbackGoogle(CallbackGoogleRequestDTO) returns (Account) {}
-  rpc PickBySize(UInt32Value) returns (Account) {}
+  rpc PickBySize(UInt64Value) returns (Account) {}
   rpc IncreaseSize(IncreaseSizeRequestDTO) returns (UInt32Value) {}
   rpc Upload(stream UploadRequestDTO) returns (StringValue) {}
 }
