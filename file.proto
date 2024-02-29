@@ -32,8 +32,8 @@ message File {
 
 service FileService{
   rpc CreateFile(CreateFileRequestDTO) returns (File) {}
-  rpc CreateFilePart(CreateFilePartRequestDTO) returns (Int32Value) {}
-  rpc SetLoading(SetLoadingRequestDTO) returns (Int32Value) {}
+  rpc CreateFilePart(CreateFilePartRequestDTO) returns (UInt32Value) {}
+  rpc SetLoading(SetLoadingRequestDTO) returns (UInt32Value) {}
   rpc GetBySlug(GetBySlugRequestDTO) returns (File) {}
   rpc GetFiles(GetFilesRequestDTO) returns (stream File) {}
   rpc GetFileFromStorage(GetFileFromStorageRequestDTO) returns (stream BytesValue) {}
