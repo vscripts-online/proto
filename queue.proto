@@ -23,6 +23,5 @@ enum Queues {
 message FilePartUpload {
   uint32 offset = 1;
   uint32 size = 2;
-  string _id = 3;
   string name = 4;
 }

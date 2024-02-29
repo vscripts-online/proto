@@ -66,4 +66,5 @@ message IncreaseSizeRequestDTO {
 message UploadRequestDTO {
   bytes buffer = 1;
   string _id = 2;
+  uint32 iterate = 3;
 }
