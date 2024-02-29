@@ -4,7 +4,7 @@ package queue;
 
 import "google/protobuf/wrappers.proto";
 
-service QueueService{
+service QueueService {
   rpc NewFileUploaded(StringValue) returns (BoolValue) {}
   rpc SendForgotPasswordMail(ForgotPasswordMailParams) returns (BoolValue) {}
 }
@@ -24,4 +24,5 @@ message FilePartUpload {
   uint32 offset = 1;
   uint32 size = 2;
   string _id = 3;
+  string name = 4;
 }
