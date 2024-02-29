@@ -32,6 +32,7 @@ service AccountService{
   rpc CallbackGoogle(CallbackGoogleRequestDTO) returns (Account) {}
   rpc PickBySize(UInt32Value) returns (Account) {}
   rpc IncreaseSize(IncreaseSizeRequestDTO) returns (UInt32Value) {}
+  rpc Upload(stream UploadRequestDTO) returns (StringValue) {}
 }
 
 message NewAccountRequestDTO {
@@ -60,4 +61,9 @@ message CallbackGoogleRequestDTO {
 message IncreaseSizeRequestDTO {
   string _id = 1;
   uint32 size = 2;
+}
+
+message UploadRequestDTO {
+  bytes buffer = 1;
+  string _id = 2;
 }
