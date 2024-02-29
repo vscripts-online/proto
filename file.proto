@@ -30,13 +30,13 @@ message File {
   repeated FilePart parts = 9;
 }
 
-service FileService{
+service FileService {
   rpc CreateFile(CreateFileRequestDTO) returns (File) {}
   rpc CreateFilePart(CreateFilePartRequestDTO) returns (UInt32Value) {}
   rpc SetLoading(SetLoadingRequestDTO) returns (UInt32Value) {}
   rpc GetBySlug(GetBySlugRequestDTO) returns (File) {}
   rpc GetFiles(GetFilesRequestDTO) returns (stream File) {}
-  rpc GetFileFromStorage(GetFileFromStorageRequestDTO) returns (stream BytesValue) {}
+  rpc GetFileFromStorage(File) returns (stream BytesValue) {}
 }
 
 message CreateFileRequestDTO {
@@ -85,9 +85,4 @@ message GetFilesWhereRequestDTO {
 message GetFilesLimitRequestDTO{
   optional uint32 skip = 1;
   optional uint32 limit = 2;
-}
-
-message GetFileFromStorageRequestDTO {
-  FilePart part = 1;
-  Account account = 2;
 }
