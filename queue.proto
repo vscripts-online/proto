@@ -10,6 +10,7 @@ service QueueService {
 }
 
 message ForgotPasswordMailParams {
+  uint32 id = 1;
   uint32 code = 2;
   string email = 3;
 }
@@ -27,6 +28,7 @@ message FilePartUpload {
 }
 
 message ForgotPasswordMail {
+  uint32 id = 1;
   uint32 code = 2;
   string email = 3;
 }
