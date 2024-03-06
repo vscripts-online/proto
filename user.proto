@@ -19,7 +19,7 @@ service UserService{
   rpc RegisterUser(UserRegisterRequestDTO) returns (UserRegisterResponseDTO) {}
   rpc LoginUser(UserRegisterRequestDTO) returns (UserRegisterResponseDTO) {}
   rpc ChangePassword(UserChangePasswordRequestDTO) returns (UserRegisterResponseDTO) {}
-  rpc ForgotPassword(UserForgotPasswordRequestDTO) returns (UserForgotPasswordResponseDTO) {}
+  rpc ForgotPassword(UserForgotPasswordRequestDTO) returns (BoolValue) {}
   rpc ChangePasswordFromForgot(UserChangePasswordFromForgotPasswordRequestDTO) returns (UserRegisterResponseDTO) {}
   rpc FindOne(UserFineOneDTO) returns (UserRegisterResponseDTO) {}
   rpc IsAdmin(UInt32Value) returns (BoolValue) {}
@@ -48,11 +48,6 @@ message UserChangePasswordRequestDTO {
 
 message UserForgotPasswordRequestDTO {
   string email = 1;
-}
-
-message UserForgotPasswordResponseDTO {
-  bool success = 1;
-  optional uint32 code = 2;
 }
 
 message UserChangePasswordFromForgotPasswordRequestDTO {
