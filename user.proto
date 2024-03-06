@@ -52,7 +52,7 @@ message UserForgotPasswordRequestDTO {
 
 message UserForgotPasswordResponseDTO {
   bool success = 1;
-  opitonal code = 2;
+  optional uint32 code = 2;
 }
 
 message UserChangePasswordFromForgotPasswordRequestDTO {
