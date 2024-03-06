@@ -1,0 +1,13 @@
+{
+  "name": "proto",
+  "version": "1.0.0",
+  "description": "Proto files",
+  "main": "index.js",
+  "scripts": {
+    "test": "sh build_proto.sh",
+    "prepare": "husky"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
