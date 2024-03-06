@@ -3,6 +3,7 @@ syntax = "proto3";
 package user;
 
 import "google/protobuf/wrappers.proto";
+import "google/protobuf/empty.proto";
 
 message User {
   int32 id = 1;
@@ -23,6 +24,7 @@ service UserService{
   rpc ChangePasswordFromForgot(UserChangePasswordFromForgotPasswordRequestDTO) returns (UserRegisterResponseDTO) {}
   rpc FindOne(UserFineOneDTO) returns (UserRegisterResponseDTO) {}
   rpc IsAdmin(UInt32Value) returns (BoolValue) {}
+  rpc me(Empty) returns (User) {}
 }
 
 message UserRegisterRequestDTO {
