@@ -3,7 +3,6 @@ syntax = "proto3";
 package user;
 
 import "google/protobuf/wrappers.proto";
-import "google/protobuf/empty.proto";
 
 message User {
   int32 id = 1;
@@ -24,7 +23,7 @@ service UserService{
   rpc ChangePasswordFromForgot(UserChangePasswordFromForgotPasswordRequestDTO) returns (UserRegisterResponseDTO) {}
   rpc FindOne(UserFineOneDTO) returns (UserRegisterResponseDTO) {}
   rpc IsAdmin(UInt32Value) returns (BoolValue) {}
-  rpc me(Empty) returns (User) {}
+  rpc me(UserMeRequestDTO) returns (User) {}
 }
 
 message UserRegisterRequestDTO {
@@ -67,4 +66,8 @@ message UserFineOneDTO {
   repeated int32 verify_code_send_time = 6;
   optional int32 used_size = 7;
   optional int32 total_drive = 8;
+}
+
+message UserMeRequestDTO {
+  uint32 id = 1;
 }
