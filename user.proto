@@ -19,7 +19,7 @@ service UserService{
   rpc RegisterUser(UserRegisterRequestDTO) returns (UserRegisterResponseDTO) {}
   rpc LoginUser(UserRegisterRequestDTO) returns (UserRegisterResponseDTO) {}
   rpc ChangePassword(UserChangePasswordRequestDTO) returns (UserRegisterResponseDTO) {}
-  rpc ForgotPassword(UserForgotPasswordRequestDTO) returns (BoolValue) {}
+  rpc ForgotPassword(UserForgotPasswordRequestDTO) returns (UserForgotPasswordResponseDTO) {}
   rpc ChangePasswordFromForgot(UserChangePasswordFromForgotPasswordRequestDTO) returns (UserRegisterResponseDTO) {}
   rpc FindOne(UserFineOneDTO) returns (UserRegisterResponseDTO) {}
   rpc IsAdmin(UInt32Value) returns (BoolValue) {}
@@ -66,6 +66,11 @@ message UserFineOneDTO {
   repeated int32 verify_code_send_time = 6;
   optional int32 used_size = 7;
   optional int32 total_drive = 8;
+}
+
+message UserForgotPasswordResponseDTO {
+  bool success = 1;
+  optional uint32 code = 2;
 }
 
 message UserMeRequestDTO {
