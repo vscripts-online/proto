@@ -18,8 +18,8 @@ message Account {
   optional string refresh_token = 7;
   optional string access_token = 8;
   optional uint32 access_token_expiry_time = 9;
-  uint32 storage_size = 10;
-  uint32 available_size = 11;
+  uint64 storage_size = 10;
+  uint64 available_size = 11;
 
 }
 
