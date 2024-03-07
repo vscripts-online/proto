@@ -11,8 +11,8 @@ message User {
   optional uint32 verify_code = 4;
   uint32 invalid_verify_code = 5;
   repeated uint32 verify_code_send_time = 6;
-  uint32 used_size = 7;
-  uint32 total_drive = 8;
+  uint64 used_size = 7;
+  uint64 total_drive = 8;
 }
 
 service UserService {
@@ -24,6 +24,7 @@ service UserService {
   rpc FindOne(UserFineOneDTO) returns (UserRegisterResponseDTO) {}
   rpc IsAdmin(UInt32Value) returns (BoolValue) {}
   rpc me(UserMeRequestDTO) returns (UserMeResponseDTO) {}
+  rpc GetUsers(PaginationRequestDTO) returns (stream User) {}
 }
 
 message UserRegisterRequestDTO {
@@ -82,4 +83,9 @@ message UserMeResponseDTO {
   string email = 2;
   uint32 used_size = 7;
   uint32 total_drive = 8;
+}
+
+message PaginationRequestDTO {
+  uint32 limit = 1;
+  uint32 skip = 2;
 }
