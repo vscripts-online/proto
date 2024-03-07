@@ -80,7 +80,6 @@ message UserMeRequestDTO {
 message UserMeResponseDTO {
   uint32 id = 1;
   string email = 2;
-  string password = 3;
   uint32 used_size = 7;
   uint32 total_drive = 8;
 }
