@@ -8,14 +8,14 @@ message User {
   int32 id = 1;
   string email = 2;
   string password = 3;
-  optional int32 verify_code = 4;
-  int32 invalid_verify_code = 5;
-  repeated int32 verify_code_send_time = 6;
-  int32 used_size = 7;
-  int32 total_drive = 8;
+  optional uint32 verify_code = 4;
+  uint32 invalid_verify_code = 5;
+  repeated uint32 verify_code_send_time = 6;
+  uint32 used_size = 7;
+  uint32 total_drive = 8;
 }
 
-service UserService{
+service UserService {
   rpc RegisterUser(UserRegisterRequestDTO) returns (UserRegisterResponseDTO) {}
   rpc LoginUser(UserRegisterRequestDTO) returns (UserRegisterResponseDTO) {}
   rpc ChangePassword(UserChangePasswordRequestDTO) returns (UserRegisterResponseDTO) {}
@@ -32,17 +32,17 @@ message UserRegisterRequestDTO {
 }
 
 message UserRegisterResponseDTO {
-  int32 id = 1;
+  uint32 id = 1;
   string email = 2;
-  optional int32 verify_code = 3;
+  optional uint32 verify_code = 3;
   int32 invalid_verify_code = 4;
-  repeated int32 verify_code_send_time = 5;
-  int32 used_size = 6;
-  int32 total_drive = 7;
+  repeated uint32 verify_code_send_time = 5;
+  uint32 used_size = 6;
+  uint32 total_drive = 7;
 }
 
 message UserChangePasswordRequestDTO {
-  int32 id = 1;
+  uint32 id = 1;
   string current_password = 2;
   string password = 3;
 }
@@ -52,20 +52,20 @@ message UserForgotPasswordRequestDTO {
 }
 
 message UserChangePasswordFromForgotPasswordRequestDTO {
-  int32 id = 1;
-  int32 code = 2;
+  uint32 id = 1;
+  uint32 code = 2;
   string password = 3;
 }
 
 message UserFineOneDTO {
-  optional int32 id = 1;
+  optional uint32 id = 1;
   optional string email = 2;
   optional string password = 3;
-  optional int32 verify_code = 4;
-  optional int32 invalid_verify_code = 5;
-  repeated int32 verify_code_send_time = 6;
-  optional int32 used_size = 7;
-  optional int32 total_drive = 8;
+  optional uint32 verify_code = 4;
+  optional uint32 invalid_verify_code = 5;
+  repeated uint32 verify_code_send_time = 6;
+  optional uint32 used_size = 7;
+  optional uint32 total_drive = 8;
 }
 
 message UserForgotPasswordResponseDTO {
