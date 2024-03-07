@@ -5,7 +5,7 @@ package user;
 import "google/protobuf/wrappers.proto";
 
 message User {
-  int32 id = 1;
+  uint32 id = 1;
   string email = 2;
   string password = 3;
   optional uint32 verify_code = 4;
@@ -23,7 +23,7 @@ service UserService {
   rpc ChangePasswordFromForgot(UserChangePasswordFromForgotPasswordRequestDTO) returns (UserRegisterResponseDTO) {}
   rpc FindOne(UserFineOneDTO) returns (UserRegisterResponseDTO) {}
   rpc IsAdmin(UInt32Value) returns (BoolValue) {}
-  rpc me(UserMeRequestDTO) returns (User) {}
+  rpc me(UserMeRequestDTO) returns (UserMeResponseDTO) {}
 }
 
 message UserRegisterRequestDTO {
@@ -35,7 +35,7 @@ message UserRegisterResponseDTO {
   uint32 id = 1;
   string email = 2;
   optional uint32 verify_code = 3;
-  int32 invalid_verify_code = 4;
+  uint32 invalid_verify_code = 4;
   repeated uint32 verify_code_send_time = 5;
   uint32 used_size = 6;
   uint32 total_drive = 7;
@@ -75,4 +75,12 @@ message UserForgotPasswordResponseDTO {
 
 message UserMeRequestDTO {
   uint32 id = 1;
+}
+
+message UserMeResponseDTO {
+  uint32 id = 1;
+  string email = 2;
+  string password = 3;
+  uint32 used_size = 7;
+  uint32 total_drive = 8;
 }
