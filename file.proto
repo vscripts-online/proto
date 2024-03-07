@@ -75,8 +75,6 @@ message GetFilesWhereRequestDTO {
   optional string _id = 1;
   optional string slug = 2;
   optional string name = 3;
-  optional string time_lte = 4;
-  optional string time_gte = 5;
   optional uint32 size_gte = 6;
   optional uint32 size_lte = 7;
   optional string mime_type = 8;
@@ -84,8 +82,10 @@ message GetFilesWhereRequestDTO {
   optional string headers_value = 10;
   optional string owner = 11;
   optional uint32 user = 12;
-  optional string created_at = 13;
-  optional string updated_at = 14;
+  optional string created_at_lte = 13;
+  optional string created_at_gte = 14;
+  optional string updated_at_lte = 15;
+  optional string updated_at_gte = 16;
 }
 
 message GetFilesLimitRequestDTO{
