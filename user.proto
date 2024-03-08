@@ -64,7 +64,6 @@ message UserFineOneDTO {
   optional string password = 3;
   optional uint32 verify_code = 4;
   optional uint32 invalid_verify_code = 5;
-  repeated uint32 verify_code_send_time = 6;
   optional uint32 used_size = 7;
   optional uint32 total_drive = 8;
 }
