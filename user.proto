@@ -25,8 +25,8 @@ service UserService {
   rpc IsAdmin(UInt32Value) returns (BoolValue) {}
   rpc me(UserMeRequestDTO) returns (UserMeResponseDTO) {}
   rpc GetUsers(PaginationRequestDTO) returns (stream User) {}
-  rpc IncreaseUsedSize(IncreaseSizeDTO) returns (UInt64Value) {}
-  rpc IncreaseTotalDrive(IncreaseSizeDTO) returns (UInt64Value) {}
+  rpc IncreaseUsedSize(IncreaseSizeDTO) returns (BoolValue) {}
+  rpc IncreaseTotalDrive(IncreaseSizeDTO) returns (BoolValue) {}
 }
 
 message UserRegisterRequestDTO {
