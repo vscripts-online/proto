@@ -3,6 +3,7 @@ syntax = "proto3";
 package account;
 
 import "google/protobuf/wrappers.proto";
+import "google/protobuf/empty.proto";
 
 enum AccountTypes {
   GOOGLE = 1;
@@ -33,6 +34,7 @@ service AccountService {
   rpc PickBySize(UInt64Value) returns (Account) {}
   rpc IncreaseSize(IncreaseSizeRequestDTO) returns (UInt32Value) {}
   rpc Upload(stream UploadRequestDTO) returns (StringValue) {}
+  rpc TotalStorage(Empty) returns (TotalStorageResponse) {}
 }
 
 message NewAccountRequestDTO {
@@ -65,4 +67,10 @@ message IncreaseSizeRequestDTO {
 
 message UploadRequestDTO {
   bytes buffer = 1;
+}
+
+message TotalStorageResponse {
+  uint64 available_storage = 1;
+  uint64 total_storage = 2;
+  uint32 total_accounts = 3;
 }
