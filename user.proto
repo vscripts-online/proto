@@ -26,7 +26,7 @@ service UserService {
   rpc me(UserMeRequestDTO) returns (UserMeResponseDTO) {}
   rpc GetUsers(PaginationRequestDTO) returns (stream User) {}
   rpc IncreaseUsedSize(IncreaseSizeDTO) returns (BoolValue) {}
-  rpc IncreaseTotalDrive(IncreaseSizeDTO) returns (BoolValue) {}
+  rpc SetTotalDrive(IncreaseSizeDTO) returns (BoolValue) {}
 }
 
 message UserRegisterRequestDTO {
