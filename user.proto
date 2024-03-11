@@ -10,7 +10,7 @@ message User {
   string password = 3;
   optional uint32 verify_code = 4;
   uint32 invalid_verify_code = 5;
-  repeated uint32 verify_code_send_time = 6;
+  repeated uint64 verify_code_send_time = 6;
   uint64 used_size = 7;
   uint64 total_drive = 8;
 }
@@ -24,7 +24,7 @@ service UserService {
   rpc FindOne(UserFineOneDTO) returns (UserRegisterResponseDTO) {}
   rpc IsAdmin(UInt32Value) returns (BoolValue) {}
   rpc me(UserMeRequestDTO) returns (UserMeResponseDTO) {}
-  rpc GetUsers(PaginationRequestDTO) returns (stream User) {}
+  rpc GetUsers(GetUsersRequestDTO) returns (stream User) {}
   rpc IncreaseUsedSize(IncreaseSizeDTO) returns (BoolValue) {}
   rpc SetTotalDrive(IncreaseSizeDTO) returns (BoolValue) {}
 }
@@ -39,9 +39,9 @@ message UserRegisterResponseDTO {
   string email = 2;
   optional uint32 verify_code = 3;
   uint32 invalid_verify_code = 4;
-  repeated uint32 verify_code_send_time = 5;
-  uint32 used_size = 6;
-  uint32 total_drive = 7;
+  repeated uint64 verify_code_send_time = 5;
+  uint64 used_size = 6;
+  uint64 total_drive = 7;
 }
 
 message UserChangePasswordRequestDTO {
@@ -66,8 +66,8 @@ message UserFineOneDTO {
   optional string password = 3;
   optional uint32 verify_code = 4;
   optional uint32 invalid_verify_code = 5;
-  optional uint32 used_size = 7;
-  optional uint32 total_drive = 8;
+  optional uint64 used_size = 7;
+  optional uint64 total_drive = 8;
 }
 
 message UserForgotPasswordResponseDTO {
@@ -82,13 +82,14 @@ message UserMeRequestDTO {
 message UserMeResponseDTO {
   uint32 id = 1;
   string email = 2;
-  uint32 used_size = 7;
-  uint32 total_drive = 8;
+  uint64 used_size = 7;
+  uint64 total_drive = 8;
 }
 
-message PaginationRequestDTO {
+message GetUsersRequestDTO {
   uint32 limit = 1;
   uint32 skip = 2;
+  string sort_by = 3;
 }
 
 message IncreaseSizeDTO {
