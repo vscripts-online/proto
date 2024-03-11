@@ -103,4 +103,5 @@ message UpdateFileRequestDTO {
   string _id = 0;
   repeated FileHeader headers = 1;
   string file_name = 2;
+  uint32 user = 3;
 }
