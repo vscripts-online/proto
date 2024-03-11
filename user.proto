@@ -3,6 +3,7 @@ syntax = "proto3";
 package user;
 
 import "google/protobuf/wrappers.proto";
+import "google/protobuf/empty.proto";
 
 message User {
   uint32 id = 1;
@@ -27,6 +28,7 @@ service UserService {
   rpc GetUsers(GetUsersRequestDTO) returns (stream User) {}
   rpc IncreaseUsedSize(IncreaseSizeDTO) returns (BoolValue) {}
   rpc SetTotalDrive(IncreaseSizeDTO) returns (BoolValue) {}
+  rpc UsersCount(Empty) returns (UInt32Value) {}
 }
 
 message UserRegisterRequestDTO {
