@@ -13,8 +13,8 @@ message FileHeader {
 message FilePart {
   string owner = 1;
   string name = 2;
-  uint32 offset = 3;
-  uint32 size = 4;
+  uint64 offset = 3;
+  uint64 size = 4;
   string id = 5;
 }
 
@@ -23,7 +23,7 @@ message File {
   string name = 2;
   string original_name = 3;
   string mime_type = 4;
-  uint32 size = 5;
+  uint64 size = 5;
   string slug = 6;
   bool loading_from_cloud_now = 7;
   repeated FileHeader headers = 8;
@@ -31,6 +31,7 @@ message File {
   uint32 user = 10;
   string created_at = 11;
   string updated_at = 12;
+  string file_name = 13;
 }
 
 service FileService {
@@ -40,15 +41,17 @@ service FileService {
   rpc GetBySlug(GetBySlugRequestDTO) returns (File) {}
   rpc GetFiles(GetFilesRequestDTO) returns (stream File) {}
   rpc GetFileFromStorage(File) returns (stream BytesValue) {}
+  rpc UpdateFile(UpdateFileRequestDTO) returns File {}
 }
 
 message CreateFileRequestDTO {
   string name = 1;
   string original_name = 2;
   string mime_type = 3;
-  uint32 size = 4;
+  uint64 size = 4;
   repeated FileHeader headers = 5;
   uint32 user = 6;
+  string file_name = 7; 
 }
 
 message CreateFilePartRequestDTO {
@@ -75,8 +78,8 @@ message GetFilesWhereRequestDTO {
   optional string _id = 1;
   optional string slug = 2;
   optional string name = 3;
-  optional uint32 size_gte = 6;
-  optional uint32 size_lte = 7;
+  optional uint64 size_gte = 6;
+  optional uint64 size_lte = 7;
   optional string mime_type = 8;
   optional string headers_key = 9;
   optional string headers_value = 10;
@@ -94,4 +97,9 @@ message GetFilesLimitRequestDTO{
 message GteLte {
   optional string gte = 1;
   optional string lte = 2;
+}
+
+message UpdateFileRequestDTO {
+  repeated FileHeader headers = 1;
+  string file_name = 2;
 }
