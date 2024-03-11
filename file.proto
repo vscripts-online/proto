@@ -41,7 +41,7 @@ service FileService {
   rpc GetBySlug(GetBySlugRequestDTO) returns (File) {}
   rpc GetFiles(GetFilesRequestDTO) returns (stream File) {}
   rpc GetFileFromStorage(File) returns (stream BytesValue) {}
-  rpc UpdateFile(UpdateFileRequestDTO) returns File {}
+  rpc UpdateFile(UpdateFileRequestDTO) returns (File) {}
 }
 
 message CreateFileRequestDTO {
