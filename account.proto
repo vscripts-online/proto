@@ -35,7 +35,7 @@ service AccountService {
   rpc IncreaseSize(IncreaseSizeRequestDTO) returns (UInt32Value) {}
   rpc Upload(stream UploadRequestDTO) returns (StringValue) {}
   rpc TotalStorage(Empty) returns (TotalStorageResponse) {}
-  rpc UpdateLabel(StringValue) returns (BoolValue) {}
+  rpc UpdateLabel(UpdateLabelDTO) returns (BoolValue) {}
 }
 
 message NewAccountRequestDTO {
@@ -74,4 +74,9 @@ message TotalStorageResponse {
   uint64 available_storage = 1;
   uint64 total_storage = 2;
   uint32 total_accounts = 3;
+}
+
+message UpdateLabelDTO {
+  string _id = 1;
+  string label = 2;
 }
