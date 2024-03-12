@@ -21,6 +21,7 @@ message Account {
   optional uint32 access_token_expiry_time = 9;
   uint64 storage_size = 10;
   uint64 available_size = 11;
+  string sync_time = 12;
 
 }
 
