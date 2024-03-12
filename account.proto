@@ -22,7 +22,6 @@ message Account {
   uint64 storage_size = 10;
   uint64 available_size = 11;
   string sync_time = 12;
-
 }
 
 service AccountService {
@@ -37,6 +36,7 @@ service AccountService {
   rpc Upload(stream UploadRequestDTO) returns (UploadResponseDTO) {}
   rpc TotalStorage(Empty) returns (TotalStorageResponse) {}
   rpc UpdateLabel(UpdateLabelDTO) returns (BoolValue) {}
+  rpc SyncSize(StringValue) returns (BoolValue) {}
 }
 
 message NewAccountRequestDTO {
