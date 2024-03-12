@@ -42,6 +42,7 @@ service FileService {
   rpc GetFiles(GetFilesRequestDTO) returns (stream File) {}
   rpc GetFileFromStorage(File) returns (stream BytesValue) {}
   rpc UpdateFile(UpdateFileRequestDTO) returns (File) {}
+  rpc DeleteFile(DeleteFileDTO) returns (File) {}
 }
 
 message CreateFileRequestDTO {
@@ -104,4 +105,9 @@ message UpdateFileRequestDTO {
   repeated FileHeader headers = 1;
   string file_name = 2;
   uint32 user = 3;
+}
+
+message DeleteFileDTO {
+  string _id = 1;
+  uint32 user = 2;
 }
