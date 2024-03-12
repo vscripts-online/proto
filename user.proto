@@ -96,5 +96,5 @@ message GetUsersRequestDTO {
 
 message IncreaseSizeDTO {
   uint32 user = 1;
-  uint64 size = 2;
+  int64 size = 2;
 }
