@@ -35,6 +35,7 @@ service AccountService {
   rpc IncreaseSize(IncreaseSizeRequestDTO) returns (UInt32Value) {}
   rpc Upload(stream UploadRequestDTO) returns (StringValue) {}
   rpc TotalStorage(Empty) returns (TotalStorageResponse) {}
+  rpc UpdateLabel(StringValue) returns (BoolValue) {}
 }
 
 message NewAccountRequestDTO {
