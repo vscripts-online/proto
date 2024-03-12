@@ -33,7 +33,7 @@ service AccountService {
   rpc CallbackGoogle(CallbackGoogleRequestDTO) returns (Account) {}
   rpc PickBySize(UInt64Value) returns (Account) {}
   rpc IncreaseSize(IncreaseSizeRequestDTO) returns (UInt32Value) {}
-  rpc Upload(stream UploadRequestDTO) returns (StringValue) {}
+  rpc Upload(stream UploadRequestDTO) returns (UploadResponseDTO) {}
   rpc TotalStorage(Empty) returns (TotalStorageResponse) {}
   rpc UpdateLabel(UpdateLabelDTO) returns (BoolValue) {}
 }
@@ -68,6 +68,11 @@ message IncreaseSizeRequestDTO {
 
 message UploadRequestDTO {
   bytes buffer = 1;
+}
+
+message UploadResponseDTO {
+  string file_id = 1;
+  string name = 2;
 }
 
 message TotalStorageResponse {
