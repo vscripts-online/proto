@@ -64,7 +64,7 @@ message CallbackGoogleRequestDTO {
 
 message IncreaseSizeRequestDTO {
   string _id = 1;
-  uint64 size = 2;
+  int64 size = 2;
 }
 
 message UploadRequestDTO {
