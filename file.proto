@@ -43,6 +43,7 @@ service FileService {
   rpc GetFileFromStorage(File) returns (stream BytesValue) {}
   rpc UpdateFile(UpdateFileRequestDTO) returns (File) {}
   rpc DeleteFile(DeleteFileDTO) returns (File) {}
+  rpc DeleteFileFromStorage(FilePart) returns (BoolValue) {}
 }
 
 message CreateFileRequestDTO {
