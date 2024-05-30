@@ -42,6 +42,8 @@ service AccountService {
 message NewAccountRequestDTO {
   AccountTypes type = 1;
   optional string label = 2;
+  string client_id = 3;
+  string client_secret = 4;
 }
 
 message AccountUpdateGoogleRequestDTO {
