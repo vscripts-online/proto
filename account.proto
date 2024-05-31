@@ -54,8 +54,6 @@ message NewAccountRequestDTO {
 
 message AccountUpdateGoogleRequestDTO {
   string _id = 1;
-  string client_id = 2;
-  string client_secret = 3;
 }
 
 message PaginationRequestDTO {
@@ -65,8 +63,6 @@ message PaginationRequestDTO {
 
 message CallbackGoogleRequestDTO {
   string _id = 1;
-  string client_id = 2;
-  string client_secret = 3;
   string code = 4;
 }
 
