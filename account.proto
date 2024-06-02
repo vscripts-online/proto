@@ -42,7 +42,7 @@ service AccountService {
   rpc Upload(stream UploadRequestDTO) returns (UploadResponseDTO) {}
   rpc TotalStorage(Empty) returns (TotalStorageResponse) {}
   rpc UpdateLabel(UpdateLabelDTO) returns (BoolValue) {}
-  rpc SyncSize(StringValue) returns (BoolValue) {}
+  rpc SyncSize(StringValue) returns (SyncSizeResponse) {}
 }
 
 message NewAccountRequestDTO {
@@ -89,4 +89,9 @@ message TotalStorageResponse {
 message UpdateLabelDTO {
   string _id = 1;
   string label = 2;
+}
+
+message SyncSizeResponse {
+  string storage_size = 1;
+  string available_size = 2;
 }
