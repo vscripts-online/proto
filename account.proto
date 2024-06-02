@@ -32,7 +32,6 @@ message Account {
 
 service AccountService {
   rpc NewAccount(NewAccountRequestDTO) returns (Account) {}
-  rpc LoginUrlGoogle(AccountUpdateGoogleRequestDTO) returns (StringValue) {}
   rpc GetAccounts(PaginationRequestDTO) returns (stream Account) {}
   rpc GetAccount(StringValue) returns (Account) {}
   rpc DeleteAccount(StringValue) returns (Account) {}
@@ -63,7 +62,10 @@ message PaginationRequestDTO {
 
 message CallbackGoogleRequestDTO {
   string _id = 1;
+  string client_id = 2;
+  string client_secret = 3;
   string code = 4;
+  optional string label = 5;
 }
 
 message IncreaseSizeRequestDTO {
