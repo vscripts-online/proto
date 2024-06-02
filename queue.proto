@@ -7,19 +7,11 @@ import "file.proto";
 
 service QueueService {
   rpc NewFileUploaded(StringValue) returns (BoolValue) {}
-  rpc SendForgotPasswordMail(ForgotPasswordMailParams) returns (BoolValue) {}
   rpc DeleteFile(FilePart) returns (BoolValue) {}
-}
-
-message ForgotPasswordMailParams {
-  uint32 id = 1;
-  uint32 code = 2;
-  string email = 3;
 }
 
 enum Queues {
   FILE_PART_UPLOAD = 1;
-  SEND_FORGOT_PASSWORD_EMAIL = 2;
   DELETE_FILE = 3;
 }
 
@@ -28,10 +20,4 @@ message FilePartUpload {
   uint64 size = 2;
   string _id = 3;
   string name = 4;
-}
-
-message ForgotPasswordMail {
-  uint32 id = 1;
-  uint32 code = 2;
-  string email = 3;
 }
