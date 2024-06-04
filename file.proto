@@ -24,7 +24,6 @@ message File {
   string original_name = 3;
   string mime_type = 4;
   uint64 size = 5;
-  string slug = 6;
   bool loading_from_cloud_now = 7;
   repeated FileHeader headers = 8;
   repeated FilePart parts = 9;
@@ -38,7 +37,6 @@ service FileService {
   rpc CreateFile(CreateFileRequestDTO) returns (File) {}
   rpc CreateFilePart(CreateFilePartRequestDTO) returns (UInt32Value) {}
   rpc SetLoading(SetLoadingRequestDTO) returns (UInt32Value) {}
-  rpc GetBySlug(GetBySlugRequestDTO) returns (File) {}
   rpc GetFiles(GetFilesRequestDTO) returns (stream File) {}
   rpc GetFileFromStorage(File) returns (stream BytesValue) {}
   rpc UpdateFile(UpdateFileRequestDTO) returns (File) {}
@@ -66,10 +64,6 @@ message SetLoadingRequestDTO {
   bool loading_from_cloud_now = 2;
 }
 
-message GetBySlugRequestDTO {
-  string slug = 1;
-}
-
 message GetFilesRequestDTO{
   optional GetFilesWhereRequestDTO where = 1;
   optional GetFilesLimitRequestDTO limit = 2;
@@ -78,7 +72,6 @@ message GetFilesRequestDTO{
 
 message GetFilesWhereRequestDTO {
   optional string _id = 1;
-  optional string slug = 2;
   optional string name = 3;
   optional uint64 size_gte = 6;
   optional uint64 size_lte = 7;
