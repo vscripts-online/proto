@@ -24,7 +24,6 @@ message File {
   string original_name = 3;
   string mime_type = 4;
   uint64 size = 5;
-  bool loading_from_cloud_now = 7;
   repeated FileHeader headers = 8;
   repeated FilePart parts = 9;
   uint32 user = 10;
@@ -36,7 +35,6 @@ message File {
 service FileService {
   rpc CreateFile(CreateFileRequestDTO) returns (File) {}
   rpc CreateFilePart(CreateFilePartRequestDTO) returns (UInt32Value) {}
-  rpc SetLoading(SetLoadingRequestDTO) returns (UInt32Value) {}
   rpc GetFiles(GetFilesRequestDTO) returns (stream File) {}
   rpc GetFileFromStorage(File) returns (stream BytesValue) {}
   rpc UpdateFile(UpdateFileRequestDTO) returns (File) {}
@@ -57,11 +55,6 @@ message CreateFileRequestDTO {
 message CreateFilePartRequestDTO {
   string _id = 1;
   FilePart part = 2;
-}
-
-message SetLoadingRequestDTO {
-  string _id = 1;
-  bool loading_from_cloud_now = 2;
 }
 
 message GetFilesRequestDTO{
