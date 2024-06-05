@@ -20,4 +20,5 @@ message FilePartUpload {
   uint64 size = 2;
   string _id = 3;
   string name = 4;
+  optional bool last = 5;
 }
