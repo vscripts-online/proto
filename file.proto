@@ -35,7 +35,7 @@ message File {
 service FileService {
   rpc CreateFile(CreateFileRequestDTO) returns (File) {}
   rpc CreateFilePart(CreateFilePartRequestDTO) returns (UInt32Value) {}
-  rpc GetFiles(GetFilesRequestDTO) returns (stream File) {}
+  rpc GetFiles(GetFilesRequestDTO) returns (GetFilesResponse) {}
   rpc GetFileFromStorage(File) returns (stream BytesValue) {}
   rpc UpdateFile(UpdateFileRequestDTO) returns (File) {}
   rpc DeleteFile(DeleteFileDTO) returns (File) {}
@@ -77,7 +77,7 @@ message GetFilesWhereRequestDTO {
   optional GteLte updated_at = 14;
 }
 
-message GetFilesLimitRequestDTO{
+message GetFilesLimitRequestDTO {
   optional uint32 skip = 1;
   optional uint32 limit = 2;
 }
@@ -85,6 +85,12 @@ message GetFilesLimitRequestDTO{
 message GteLte {
   optional string gte = 1;
   optional string lte = 2;
+}
+
+message GetFilesResponse {
+  repeated File files = 1;
+  uint32 count = 2;
+  bool has_more = 3;
 }
 
 message UpdateFileRequestDTO {

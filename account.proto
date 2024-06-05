@@ -9,11 +9,6 @@ enum AccountTypes {
   GOOGLE = 1;
 }
 
-enum AccountStatus {
-  CREATED = 1;
-  AVAILABLE = 2;
-}
-
 message Account {
   string _id = 1;
   AccountTypes type = 2;
@@ -27,7 +22,6 @@ message Account {
   uint64 storage_size = 10;
   uint64 available_size = 11;
   string sync_time = 12;
-  AccountStatus status = 13;
 }
 
 service AccountService {
