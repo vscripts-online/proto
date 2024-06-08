@@ -7,7 +7,7 @@ import "file.proto";
 
 service QueueService {
   rpc NewFileUploaded(StringValue) returns (BoolValue) {}
-  rpc DeleteFile(FilePart) returns (BoolValue) {}
+  rpc DeleteFile(StringValue) returns (BoolValue) {}
 }
 
 enum Queues {
